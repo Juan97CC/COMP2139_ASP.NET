@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Incident>
+@{
+}
+<h3>Incidents</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Customer</th>
+            <th>Product</th>
+            <th>Date</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (Incident incident in Model)
+        {
+            <tr>
+                <td>@incident.Title</td>
+                <td>@incident.Customer.Firstname @incident.Customer.Lastname</td>
+                <td>@incident.Product.Productname</td>
+                <td>@incident.DateAdded</td>
+                
+                <td><a class="btn btn-primary" style="color:white" asp-controller="Incident" asp-action="Edit" asp-route-id="@incident.IncidentId" asp-route-slug="@incident.Customer.slug">Edit</a></td>
+                <td><a class="btn btn-danger" style="color:white" asp-controller="Incident" asp-action="Delete" asp-route-id="@incident.IncidentId">Delete</a></td>
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>
+<a class="btn btn-primary" asp-controller="Incident" asp-action="Add">Add</a>

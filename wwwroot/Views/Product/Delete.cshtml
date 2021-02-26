@@ -1,0 +1,23 @@
+﻿@model Product
+@{
+}
+<h3>Confirm deletion of product</h3>
+
+<table class="table">
+    <tr>
+        <th>Product name:</th>
+        <th>Product code: </th>
+    </tr>
+    <tr>
+        <td>@Model.Productname</td>
+        <td>@Model.Code</td>
+    </tr>
+</table>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="ProductId" />
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a class="btn btn-warning" asp-controller="Home" asp-action="Index">Cancel</a>
+
+
+</form>

@@ -1,0 +1,24 @@
+﻿@model Customer
+@{
+}
+
+<h3>Confirm deletion of customer</h3>
+<table class="table">
+    <tr>
+        <th>First Name:</th>
+        <th>Last name: </th>
+    </tr>
+    <tr>
+        <td>@Model.Firstname</td>
+        <td>@Model.Lastname</td>
+
+    </tr>
+</table>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="CustomerId" />
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a class="btn btn-warning" asp-controller="Home" asp-action="Index">Cancel</a>
+
+
+</form>

@@ -1,0 +1,69 @@
+﻿@model Customer
+@{
+}
+
+<h1>@ViewBag.Action</h1>
+
+    <form asp-action="Edit" method="post" style="max-width:800px">
+
+        <div asp-validation-summary="All">
+
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Firstname">First name:</label>
+            <div class="col-sm-6">
+                <input class="form-control" asp-for="Firstname" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Lastname">Last Name:</label>
+            <div class="col-sm-6">
+                <input class="form-control" asp-for="Lastname" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Phone">Phone:</label>
+            <div class="col-sm-6">
+                <input class="form-control" asp-for="Phone" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Email">Email:</label>
+            <div class="col-sm-6">
+                <input class="form-control" asp-for="Email" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="CountryId" class="col-sm-2 col-form-label">Country:</label>
+            <div class="col-sm-6" style="display:inline-block">
+                <select class="form-control"  asp-for="CountryId" asp-items="@(new SelectList(ViewBag.Countries,"CountryId","CountryName",
+                        Model.CountryId))"></select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="City">City:</label>
+            <div class="col-sm-6">
+                <input class="form-control" asp-for="City" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="PostalCode">Postal Code:</label>
+            <div class="col-sm-6">
+                <input class="form-control" asp-for="PostalCode" />
+            </div>
+        </div>
+        <input type="hidden" asp-for="CustomerId" />
+
+
+
+
+
+        <button class="btn btn-primary" type="submit">@ViewBag.Action</button>
+        <button class="btn btn-danger" asp-controller="Home" asp-action="Index">Cancel</button>
+
+
+
+    </form>
