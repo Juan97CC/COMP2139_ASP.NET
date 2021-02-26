@@ -1,0 +1,27 @@
+﻿@model Incident
+@{
+}
+<h3>Confirm deletion of incident</h3>
+
+
+<table class="table">
+    <tr>
+        <th>Incident title:</th>
+        <th>Incident Date: </th>
+    </tr>
+    <tr>
+        <td>@Model.Title</td>
+        <td>@Model.DateAdded</td>
+
+    </tr>
+</table>
+
+
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="IncidentId" />
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a class="btn btn-warning" asp-controller="Home" asp-action="Index">Cancel</a>
+
+
+</form>

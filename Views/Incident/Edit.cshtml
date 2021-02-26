@@ -1,0 +1,65 @@
+﻿@model Incident
+@{
+}
+<h1>@ViewBag.Action</h1>
+
+    <form asp-action="Edit" method="post" style="max-width:800px">
+
+        <div asp-validation-summary="All">
+
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="CustomerId" class="col-sm-2 col-form-label">Customer:</label>
+            <div class="col-sm-6" style="display:inline-block">
+                <select class="form-control" asp-for="CustomerId" asp-items="@(new SelectList(ViewBag.Customers,"CustomerId","slug",
+                        Model.CustomerId))"></select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="ProductId" class="col-sm-2 col-form-label">Product:</label>
+            <div class="col-sm-6" style="display:inline-block">
+                <select class="form-control" asp-for="ProductId" asp-items="@(new SelectList(ViewBag.Products,"ProductId","Productname",
+                        Model.ProductId))"></select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Title">Title: </label>
+            <div class="col-sm-6">
+                <input class="form-control" asp-for="Title" />
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Description">Description: </label>
+            <div class="col-sm-6">
+                <input class="form-control" asp-for="Description" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="TechnicianId" class="col-sm-2 col-form-label">Technician:</label>
+            <div class="col-sm-6" style="display:inline-block">
+                <select class="form-control" asp-for="TechnicianId" asp-items="@(new SelectList(ViewBag.Technicians,"TechnicianId","slug",
+                        Model.TechnicianId))"></select>
+            </div>
+        </div>
+
+
+
+        <input type="hidden" asp-for="IncidentId" />
+        <input type="hidden" asp-for="DateAdded" />
+
+
+
+
+
+        <button class="btn btn-primary" type="submit">@ViewBag.Action</button>
+        <button class="btn btn-danger" asp-controller="Home" asp-action="Index">Cancel</button>
+
+
+
+    </form>
+

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Technician>
+@{
+}
+<h3>Technicians</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th></th>
+            <th></th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (Technician technician in Model)
+        {
+            <tr>
+                <td>@technician.Firstname</td>
+                <td>@technician.Lastname</td>
+                <td>@technician.Email</td>
+                <td>@technician.Phone</td>
+                <td><a class="btn btn-primary" style="color:white" asp-controller="Technician" asp-action="Edit" asp-route-id="@technician.TechnicianId">Edit</a></td>
+                <td><a class="btn btn-danger" style="color:white" asp-controller="Technician" asp-action="Delete" asp-route-id="@technician.TechnicianId">Delete</a></td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+<a class="btn btn-primary" asp-controller="Technician" asp-action="Add">Add</a>
+
